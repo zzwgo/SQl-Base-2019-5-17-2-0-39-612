@@ -1,0 +1,38 @@
+CREATE DATABASE IF NOT EXISTS `student_examination_sys` DEFAULT CHARSET UTF8 COLLATE UTF8_GENERAL_CI ;
+USE `student_examination_sys`;
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE  `student`(
+`id` VARCHAR(3) NOT NULL,
+`name` VARCHAR(10) NOT NULL,
+`age` INT NOT NULL,
+`sex` VARCHAR(2) NOT NULL
+)ENGINE=INNODB DEFAULT CHARSET = UTF8;
+
+INSERT  INTO `student` VALUES
+('001','张三',18,'男'),
+('002','李四',20,'女');
+
+CREATE TABLE `subject`(
+`id` VARCHAR(4) NOT NULL,
+`subject` VARCHAR(10) NOT NULL,
+`teacher` VARCHAR(10) NOT NULL,
+`description` VARCHAR(20) NOT NULL
+)ENGINE=INNODB DEFAULT CHARSET = UTF8;
+
+INSERT  INTO `subject` VALUES
+('1001','语文','王老师','本次考试比较简单'),
+('1002','数学','刘老师','本次考试比较难');
+
+DROP TABLE IF EXISTS `score`;
+CREATE TABLE `score`(
+`id` INT NOT NULL,
+`student_id` VARCHAR(3) NOT NULL,
+`subject_id` VARCHAR(4) NOT NULL,
+`score` DOUBLE NOT NULL
+);
+
+INSERT INTO `score` VALUES
+(1,'001','1001',80),
+(2,'002','1002',60),
+(3,'001','1001',70),
+(4,'002','1002',60.5);
